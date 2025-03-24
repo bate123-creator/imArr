@@ -1,0 +1,45 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+plugins {
+    alias(libs.plugins.android.application) apply false
+    alias(libs.plugins.kotlin.android) apply false
+    id 'maven-publish'
+}
+
+group = 'com.github.bate123-creator'
+version = '1.0.0'
+
+publishing {
+    publications {
+        aar(MavenPublication) {
+            groupId 'com.github.bate123-creator'
+            artifactId 'imArr'
+            version '1.0.0'
+
+            artifact file('app/libs/open_im_sdk.aar')
+
+            pom {
+                name = 'Hello Library'
+                description = 'A description of the hello library'
+                url = 'com.github.bate123-creator/imArr'
+                licenses {
+                    license {
+                        name = 'The Apache License, Version 2.0'
+                        url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+                developers {
+                    developer {
+                        id = 'bate123-creator'
+                        name = 'bate'
+                        email = 'bate6457@gmail.com'
+                    }
+                }
+                scm {
+                    connection = 'scm:git:git://github.com/bate123-creator/imArr.git'
+                    developerConnection = 'scm:git:ssh://github.com:bate123-creator/imArr.git'
+                    url = 'http://github.com/bate123-creator/imArr/'
+                }
+            }
+        }
+    }
+}
